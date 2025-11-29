@@ -36,19 +36,22 @@ public class Wordle {
                 {
                     resultRow[i] = '_';
                 }
-            else if(( i == guess.indexOf(secret.charAt(i))))
+            else if( secret.charAt(i) == guess.charAt(i))
                 {
                     resultRow[i] = 'G';
-                }
-            else
+                        
+                    }
+                else
                     {
                         resultRow[i] = 'Y';
                     }
+                }
+            }
             
-        }
+        
 
 
-    }
+    
 
     // Store guess string (chars) into the given row of guesses 2D array.
     // For example, of guess is HELLO, and row is 2, then after this function 
