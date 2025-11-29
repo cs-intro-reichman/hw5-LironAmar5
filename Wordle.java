@@ -10,7 +10,7 @@ public class Wordle {
     // Choose a random secret word from the dictionary. 
     // Hint: Pick a random index between 0 and dict.length (not including) using Math.random()
     public static String chooseSecretWord(String[] dict) {
-		int n = (int)(Math.random() * 257);
+		int n = ((int)(Math.random() * 258)) + 1;
         return dict[n];
     }
 
@@ -18,14 +18,7 @@ public class Wordle {
     // return false.
     public static boolean containsChar(String secret, char c) {
 
-		if(secret.indexOf(c) == -1)
-            {
-                return false;
-            }
-            else
-                {
-                    return true;
-                }
+		return secret.indexOf(c) != -1;
     }
 
     // Compute feedback for a single guess into resultRow.
