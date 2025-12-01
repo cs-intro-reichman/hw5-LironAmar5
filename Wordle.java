@@ -3,6 +3,7 @@ public class Wordle {
     // Reads all words from dictionary filename into a String array.
     public static String[] readDictionary(String filename) {
 		In in = new In(filename);
+
         String[] str = in.readAllStrings();
         return str;
     }
@@ -10,7 +11,7 @@ public class Wordle {
     // Choose a random secret word from the dictionary. 
     // Hint: Pick a random index between 0 and dict.length (not including) using Math.random()
     public static String chooseSecretWord(String[] dict) {
-		int n = ((int)(Math.random() * 258)) ;
+		int n = ((int)(Math.random() * dict.length)) ;
         return dict[n];
     }
 
@@ -24,7 +25,7 @@ public class Wordle {
     // Compute feedback for a single guess into resultRow.
     // G for exact match, Y if letter appears anywhere else, _ otherwise.
     public static void computeFeedback(String secret, String guess, char[] resultRow) {
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < resultRow.length; i++) {
             if( containsChar(secret, guess.charAt(i)) == false)
                 {
                     resultRow[i] = '_';
